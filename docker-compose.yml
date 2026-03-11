@@ -1,0 +1,31 @@
+services:
+  # Контейнер з базою даних PostgreSQL
+  db:
+    image: postgres:16              # образ PostgreSQL 16
+    container_name: database_Andrij  # Ім'я контейнера
+    restart: unless-stopped         # Автоперезапуск
+    env_file: .env                  # Змінні середовища логін, пароль, БД
+    ports:
+      - "5432:5432"                 # Проброс порту хост:контейнер
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Збереження даних БД між перезапусками
+
+  # Контейнер з FastAPI
+  api:
+    build: .                        # Збірка з Dockerfile в поточній папці
+    container_name: Andrij_api    # Ім'я контейнера
+    restart: unless-stopped         # Автоперезапуск
+    env_file: .env                  # Доступ до DATABASE_URL
+    depends_on:
+      - db                          # Запускати після контейнера БД
+    ports:
+      - "8000:8000"                 # Доступ до API через localhost:8000
+    volumes:
+      - ./:/app                     # Монтування поточної папки в контейнер
+                                     # Потрібно для автоперезавантаження (--reload)
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+
+volumes:
+  # Іменований volume для зберігання даних PostgreSQL
+  pgdata:
