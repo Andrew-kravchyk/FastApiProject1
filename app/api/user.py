@@ -1,11 +1,11 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, status
 from app.schemas.user import User
 from app.crud import user as crud
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
 # CREATE
-@router.post("/")
+@router.post("/", status_code=status.HTTP_201_CREATED)
 def create_user(user: User):
     if crud.get_user(user.id):
         raise HTTPException(status_code=400, detail="User exists")
