@@ -1,0 +1,198 @@
+23:05:18.884: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false init
+Initialized empty Git repository in C:/Users/andri/PycharmProjects/FastAPIProject1/.git/
+23:05:20.662: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- .
+warning: in the working copy of '.idea/inspectionProfiles/profiles_settings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.idea/vcs.xml', LF will be replaced by CRLF the next time Git touches it
+23:06:12.395: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- main.py
+23:17:59.192: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- poetry.lock
+23:18:00.811: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false reset -- .idea/vcs.xml .idea/.gitignore .idea/modules.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml
+23:18:00.903: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- pyproject.toml poetry.lock main.py
+23:18:01.049: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\andri\AppData\Local\Temp\git-commit-msg-4653268440403975016.txt --
+[prod (root-commit) e501d79] project innit
+ 3 files changed, 361 insertions(+)
+ create mode 100644 main.py
+ create mode 100644 poetry.lock
+ create mode 100644 pyproject.toml
+23:18:01.430: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- .idea/vcs.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml .idea/modules.xml .idea/.gitignore
+warning: in the working copy of '.idea/inspectionProfiles/profiles_settings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.idea/vcs.xml', LF will be replaced by CRLF the next time Git touches it
+23:19:25.142: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/prod:refs/heads/prod --set-upstream
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects:  20% (1/5)
+Compressing objects:  40% (2/5)
+Compressing objects:  60% (3/5)
+Compressing objects:  80% (4/5)
+Compressing objects: 100% (5/5)
+Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)
+Writing objects:  40% (2/5)
+Writing objects:  60% (3/5)
+Writing objects:  80% (4/5)
+Writing objects: 100% (5/5)
+Writing objects: 100% (5/5), 9.04 KiB | 1.13 MiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'prod' on GitHub by visiting:
+remote:      https://github.com/Andrew-kravchyk/FastApiProject1/pull/new/prod
+remote:
+To https://github.com/Andrew-kravchyk/FastApiProject1.git
+*	refs/heads/prod:refs/heads/prod	[new branch]
+branch 'prod' set up to track 'origin/prod'.
+Done
+23:19:34.860: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false checkout -b dev prod^0 --
+A	.idea/.gitignore
+Switched to a new branch 'dev'
+A	.idea/FastAPIProject1.iml
+A	.idea/inspectionProfiles/profiles_settings.xml
+A	.idea/modules.xml
+A	.idea/vcs.xml
+23:41:44.474: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- dev/commands.txt screens/img.png screens/img_1.png screens/img_2.png
+23:41:45.933: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false reset -- .idea/vcs.xml .idea/.gitignore .idea/modules.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml
+23:41:46.018: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- dev/commands.txt screens/img.png screens/img_1.png screens/img_2.png
+23:41:46.167: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\andri\AppData\Local\Temp\git-commit-msg-16379443840665653510.txt --
+[dev 80b6e43] screens and commands
+ 4 files changed, 32 insertions(+)
+ create mode 100644 dev/commands.txt
+ create mode 100644 screens/img.png
+ create mode 100644 screens/img_1.png
+ create mode 100644 screens/img_2.png
+23:41:46.549: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- .idea/vcs.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml .idea/modules.xml .idea/.gitignore
+warning: in the working copy of '.idea/inspectionProfiles/profiles_settings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.idea/vcs.xml', LF will be replaced by CRLF the next time Git touches it
+23:41:49.415: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/dev:refs/heads/dev --set-upstream
+Enumerating objects: 9, done.
+Counting objects:  11% (1/9)
+Counting objects:  22% (2/9)
+Counting objects:  33% (3/9)
+Counting objects:  44% (4/9)
+Counting objects:  55% (5/9)
+Counting objects:  66% (6/9)
+Counting objects:  77% (7/9)
+Counting objects:  88% (8/9)
+Counting objects: 100% (9/9)
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects:  14% (1/7)
+Compressing objects:  28% (2/7)
+Compressing objects:  42% (3/7)
+Compressing objects:  57% (4/7)
+Compressing objects:  71% (5/7)
+Compressing objects:  85% (6/7)
+Compressing objects: 100% (7/7)
+Compressing objects: 100% (7/7), done.
+Writing objects:  12% (1/8)
+Writing objects:  25% (2/8)
+Writing objects:  37% (3/8)
+Writing objects:  50% (4/8)
+Writing objects:  62% (5/8)
+Writing objects:  75% (6/8)
+Writing objects:  87% (7/8)
+Writing objects: 100% (8/8)
+Writing objects: 100% (8/8), 118.50 KiB | 6.58 MiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/Andrew-kravchyk/FastApiProject1/pull/new/dev
+remote:
+To https://github.com/Andrew-kravchyk/FastApiProject1.git
+*	refs/heads/dev:refs/heads/dev	[new branch]
+branch 'dev' set up to track 'origin/dev'.
+Done
+23:42:49.053: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -- docker-compose.yml Dockerfile
+23:42:50.405: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false reset -- .idea/vcs.xml .idea/.gitignore .idea/modules.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml
+23:42:50.485: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- docker-compose.yml Dockerfile
+23:42:50.640: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\andri\AppData\Local\Temp\git-commit-msg-4310303682753720344.txt --
+[dev c1a3202] docker files
+ 2 files changed, 55 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 docker-compose.yml
+23:42:50.917: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- .idea/vcs.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml .idea/modules.xml .idea/.gitignore
+warning: in the working copy of '.idea/inspectionProfiles/profiles_settings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.idea/vcs.xml', LF will be replaced by CRLF the next time Git touches it
+23:42:53.518: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/dev:dev
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects:  25% (1/4)
+Compressing objects:  50% (2/4)
+Compressing objects:  75% (3/4)
+Compressing objects: 100% (4/4)
+Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)
+Writing objects:  50% (2/4)
+Writing objects:  75% (3/4)
+Writing objects: 100% (4/4)
+Writing objects: 100% (4/4), 1.28 KiB | 655.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas:   0% (0/1)
+remote: Resolving deltas: 100% (1/1)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Andrew-kravchyk/FastApiProject1.git
+ 	refs/heads/dev:refs/heads/dev	80b6e43..c1a3202
+Done
+23:43:28.261: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false checkout prod --
+A	.idea/.gitignore
+A	.idea/FastAPIProject1.iml
+A	.idea/inspectionProfiles/profiles_settings.xml
+A	.idea/modules.xml
+A	.idea/vcs.xml
+Your branch is up to date with 'origin/prod'.
+Switched to branch 'prod'
+23:47:15.523: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false reset -- .idea/vcs.xml .idea/.gitignore .idea/modules.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml
+23:47:15.619: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- docker-compose.yml Dockerfile
+23:47:15.728: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\andri\AppData\Local\Temp\git-commit-msg-3928467751772249020.txt --
+[prod f9fd1e2] docker files
+ 2 files changed, 55 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 docker-compose.yml
+23:47:15.980: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- .idea/vcs.xml .idea/inspectionProfiles/profiles_settings.xml .idea/FastAPIProject1.iml .idea/modules.xml .idea/.gitignore
+warning: in the working copy of '.idea/inspectionProfiles/profiles_settings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.idea/vcs.xml', LF will be replaced by CRLF the next time Git touches it
+23:47:18.166: [C:\Users\andri\PycharmProjects\FastAPIProject1] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/prod:prod
+Enumerating objects: 5, done.
+Counting objects:  20% (1/5)
+Counting objects:  40% (2/5)
+Counting objects:  60% (3/5)
+Counting objects:  80% (4/5)
+Counting objects: 100% (5/5)
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects:  25% (1/4)
+Compressing objects:  50% (2/4)
+Compressing objects:  75% (3/4)
+Compressing objects: 100% (4/4)
+Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)
+Writing objects:  50% (2/4)
+Writing objects:  75% (3/4)
+Writing objects: 100% (4/4)
+Writing objects: 100% (4/4), 1.35 KiB | 230.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Andrew-kravchyk/FastApiProject1.git
+ 	refs/heads/prod:refs/heads/prod	e501d79..f9fd1e2
+Done
+
+
+
+
+
+commit f9fd1e266491c4b1c17129f1437261f83b13fb11 (HEAD -> prod, origin/prod)
+Author: Andrew <andrijkravcik95@gmail.com>
+Date:   Wed Mar 11 23:47:15 2026 +0200
+
+    docker files
+
+commit e501d79c98abf8b3d8fb888d6fb21403165495f5
+:
