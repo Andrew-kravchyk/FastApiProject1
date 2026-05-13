@@ -1,23 +1,12 @@
 from fastapi import FastAPI
-
+from app.db.database import engine, Base
+from app.api.routers import router
+from app.api import user
 app = FastAPI()
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+Base.metadata.create_all(bind=engine)
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
-@app.post("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(user.router)
 
-@app.delete("/")
-async def root():
-    return {"message": "Hello World"}
-@app.put("/")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(router, prefix="/users")
