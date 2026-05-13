@@ -1,39 +1,115 @@
-from fastapi import APIRouter, HTTPException
-from app.schemas.user import User
-from app.crud import user as crud
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.ext.asyncio import AsyncSession
 
-router = APIRouter(prefix="/users", tags=["Users"])
+from app.db.database import get_db
+from app.schemas.user import UserCreate, UserRead
 
-# CREATE
-@router.post("/")
-def create_user(user: User):
-    if crud.get_user(user.id):
-        raise HTTPException(status_code=400, detail="User exists")
-    return crud.create_user(user)
+from app.crud.user import (
+    get_all_users,
+    get_user,
+    create_user,
+    update_user,
+    delete_user
+)
 
-# READ ALL
-@router.get("/")
-def get_users():
-    return crud.get_all_users()
+router = APIRouter()
 
-# READ ONE
-@router.get("/{user_id}")
-def get_user(user_id: int):
-    user = crud.get_user(user_id)
-    if not user:
-        raise HTTPException(status_code=404, detail="Not found")
+
+# Отримати всіх користувачів
+@router.get(
+    "/users",
+    response_model=list[UserRead],
+    status_code=status.HTTP_200_OK
+)
+async def users_list(
+        db: AsyncSession = Depends(get_db)
+):
+    return await get_all_users(db)
+
+
+# Отримати одного користувача
+@router.get(
+    "/users/{user_id}",
+    response_model=UserRead,
+    status_code=status.HTTP_200_OK
+)
+async def user_detail(
+        user_id: int,
+        db: AsyncSession = Depends(get_db)
+):
+    user = await get_user(db, user_id)
+
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
+
     return user
 
-# UPDATE
-@router.put("/{user_id}")
-def update_user(user_id: int, user: User):
-    if not crud.get_user(user_id):
-        raise HTTPException(status_code=404, detail="Not found")
-    return crud.update_user(user_id, user)
 
-# DELETE
-@router.delete("/{user_id}")
-def delete_user(user_id: int):
-    if not crud.get_user(user_id):
-        raise HTTPException(status_code=404, detail="Not found")
-    return crud.delete_user(user_id)
+# Створити користувача
+@router.post(
+    "/users",
+    response_model=UserRead,
+    status_code=status.HTTP_201_CREATED
+)
+async def user_create(
+        user: UserCreate,
+        db: AsyncSession = Depends(get_db)
+):
+    return await create_user(
+        db,
+        user.email
+    )
+
+
+# Оновити користувача
+@router.put(
+    "/users/{user_id}",
+    response_model=UserRead,
+    status_code=status.HTTP_200_OK
+)
+async def user_update(
+        user_id: int,
+        user: UserCreate,
+        db: AsyncSession = Depends(get_db)
+):
+    updated_user = await update_user(
+        db,
+        user_id,
+        user.email
+    )
+
+    if updated_user is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
+
+    return updated_user
+
+
+# Видалити користувача
+@router.delete(
+    "/users/{user_id}",
+    status_code=status.HTTP_200_OK
+)
+async def user_delete(
+        user_id: int,
+        db: AsyncSession = Depends(get_db)
+):
+    deleted_user = await delete_user(
+        db,
+        user_id
+    )
+
+    if deleted_user is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
+
+    return {
+        "message": f"User {user_id} deleted"
+    }
