@@ -1,7 +1,8 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy import Column, ForeignKey, Integer, Numeric, String
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from app.db.base import Base
+from app.models.user import User
 
 class Category(Base):
     __tablename__ = "categories"
@@ -22,15 +23,6 @@ class Product(Base):
     category = relationship("Category", back_populates="products")
 
 
-class User(Base):
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True)
-    email = Column(String)
-
-    profile = relationship("Profile", uselist=False, back_populates="user")
-
-
 class Profile(Base):
     __tablename__ = "profiles"
 
@@ -46,3 +38,4 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"))
+    total_price = Column(Numeric(10, 2), default=0)

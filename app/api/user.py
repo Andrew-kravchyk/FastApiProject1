@@ -11,6 +11,7 @@ from app.crud.user import (
     update_user,
     delete_user
 )
+from app.core.metrics import USERS_CREATED_TOTAL, USERS_DELETED_TOTAL
 
 router = APIRouter()
 
@@ -58,10 +59,12 @@ async def user_create(
         user: UserCreate,
         db: AsyncSession = Depends(get_db)
 ):
-    return await create_user(
+    created_user = await create_user(
         db,
         user.email
     )
+    USERS_CREATED_TOTAL.inc()
+    return created_user
 
 
 # Оновити користувача
@@ -109,6 +112,8 @@ async def user_delete(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="User not found"
         )
+
+    USERS_DELETED_TOTAL.inc()
 
     return {
         "message": f"User {user_id} deleted"
