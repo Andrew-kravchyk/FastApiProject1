@@ -1,7 +1,13 @@
-from fastapi import APIRouter
+from app.db.base import Base
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 
-router = APIRouter()
+class User(Base):
+    __tablename__ = "users"
 
-@router.get("/users")
-def get_users():
-    return {"message": "users"}
+    id = Column(Integer, primary_key=True)
+    email = Column(String)
+    username = Column(String)
+    hashed_password = Column(String)
+
+    profile = relationship("Profile", uselist=False, back_populates="user")
