@@ -8,6 +8,7 @@ from starlette.responses import Response
 
 from app.api import user
 from app.api.v1.endpoints.auth import router as auth_router
+from app.api.v1.endpoints.orders import router as orders_router
 from app.core.metrics import (
     ORDERS_TOTAL_PURCHASE_PRICE,
     USERS_TOTAL,
@@ -23,7 +24,7 @@ app.add_middleware(PrometheusMiddleware)
 
 app.include_router(auth_router)
 app.include_router(user.router)
-
+app.include_router(orders_router)
 @app.get("/")
 def root():
     return {"message": "OK"}

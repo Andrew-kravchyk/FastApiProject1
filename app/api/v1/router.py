@@ -81,3 +81,4 @@ async def user_delete(
     return {
         "message": f"User {user_id} deleted"
     }
+
